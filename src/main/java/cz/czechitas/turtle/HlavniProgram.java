@@ -7,114 +7,121 @@ import java.awt.*;
 public class HlavniProgram {
     private Turtle zofka;
 
-        public void zmrzlina() {
+    public void zmrzlina() {
         zofka = new Turtle();
         zofka.setLocation(250.0, 250.0);
         zofka.turnLeft(90);
-        rovnoramennyTrojuhelnik(200, Color.orange);
+        nakresliRovnoramennyTrojuhelnik(200, Color.orange);
         zofka.turnLeft(90);
-        kolecko(18, Color.magenta);
+        nakresliKolecko(18, Color.magenta);
     }
 
     public void snehulak() {
         zofka = new Turtle();
         zofka.setLocation(450.0, 250.0);
         zofka.turnRight(90);
-        kolecko(10, Color.YELLOW);
-        zofka.penUp();
+        nakresliKolecko(10, Color.YELLOW);
+        polozTuzku();
         zofka.turnRight(90);
         zofka.move(100);
         zofka.turnLeft(90);
-        zofka.penDown();
-        kolecko(18, Color.BLUE);
-        zofka.penUp();
+        zvedniTuzku();
+        nakresliKolecko(18, Color.BLUE);
+        polozTuzku();
         zofka.turnRight(90);
         zofka.move(150);
         zofka.turnLeft(90);
-        zofka.penDown();
-        kolecko(25, Color.BLUE);
-        zofka.penUp();
+        zvedniTuzku();
+        nakresliKolecko(25, Color.BLUE);
+        polozTuzku();
         zofka.turnLeft(90);
         zofka.move(220);
         zofka.turnLeft(90);
         zofka.move(55);
-        zofka.penDown();
-        kolecko(7, Color.YELLOW);
-        zofka.penUp();
+        zvedniTuzku();
+        nakresliKolecko(7, Color.YELLOW);
+        polozTuzku();
         zofka.turnLeft(180);
         zofka.move(130);
         zofka.turnRight(90);
         zofka.move(38);
         zofka.turnLeft(90);
-        zofka.penDown();
-        kolecko(7, Color.YELLOW);
+        zvedniTuzku();
+        nakresliKolecko(7, Color.YELLOW);
     }
 
     public void masinka() {
         zofka = new Turtle();
         zofka.setLocation(800.0, 300.0);
-        obdelnik(100, 200, Color.green);
+        nakresliObdelnik(100, 200, Color.green);
         zofka.move(50);
         zofka.turnRight(180);
-        pravouhlyTrojuhelnik(145, Color.red);
-        zofka.penUp();
+        nakresliPravouhlyTrojuhelnik(145, Color.red);
+        polozTuzku();
         zofka.turnRight(45);
         zofka.move(200);
         zofka.turnLeft(90);
         zofka.move(150);
         zofka.turnRight(90);
-        zofka.penDown();
-        obdelnik(100, 200, Color.BLUE);
-        zofka.penUp();
+        zvedniTuzku();
+        nakresliObdelnik(100, 200, Color.BLUE);
+        polozTuzku();
         zofka.turnRight(90);
         zofka.move(200);
-        zofka.penDown();
-        kolecko(19, Color.orange);
-        zofka.penUp();
+        zvedniTuzku();
+        nakresliKolecko(19, Color.orange);
+        polozTuzku();
         zofka.turnRight(90);
         zofka.move(45);
-        zofka.penDown();
-        kolecko(10, Color.BLACK);
-        zofka.penUp();
+        zvedniTuzku();
+        nakresliKolecko(10, Color.BLACK);
+        polozTuzku();
         zofka.move(85);
-        zofka.penDown();
-        kolecko(10, Color.BLACK);
+        zvedniTuzku();
+        nakresliKolecko(10, Color.BLACK);
     }
 
 
-    public void rovnoramennyTrojuhelnik(Integer strana, Color barva) {
+
+    public void nakresliRovnoramennyTrojuhelnik(double delkaStrany, Color barva) {
         zofka.penDown();
         zofka.setPenColor(barva);
         zofka.turnLeft(75);
-        zofka.move(strana);
+        zofka.move(delkaStrany);
         zofka.turnRight(150);
-        zofka.move(strana);
+        zofka.move(delkaStrany);
         zofka.turnRight(105);
         zofka.move(100);
     }
-    public void kolecko(Integer velikost, Color barva) {
+    public void nakresliKolecko(double velikost, Color barva) {
         zofka.setPenColor(barva);
         for (int i = 0; i < 18; i++) {
             zofka.move(velikost);
             zofka.turnLeft(20);
         }
     }
-    public void obdelnik(Integer StranaA, Integer StranaB, Color barva) {
+    public void nakresliObdelnik(double delkaStranyA, double delkaStranyB, Color barva) {
         zofka.setPenColor(barva);
         for (int i = 0; i < 2; i++) {
-            zofka.move(StranaA);
+            zofka.move(delkaStranyA);
             zofka.turnRight(90);
-            zofka.move(StranaB);
+            zofka.move(delkaStranyB);
             zofka.turnRight(90);
         }
     }
-    public void pravouhlyTrojuhelnik(Integer prepona, Color barva) {
+    public void nakresliPravouhlyTrojuhelnik(double delkaPrepony, Color barva) {
         zofka.setPenColor(barva);
         zofka.move(100);
         zofka.turnRight(90);
         zofka.move(100);
         zofka.turnRight(135);
-        zofka.move(prepona);
+        zofka.move(delkaPrepony);
+    }
+    public void zvedniTuzku() {
+        zofka.penDown();
+    }
+    public void polozTuzku() {
+        zofka.penUp();
     }
 
 
